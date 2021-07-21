@@ -45,6 +45,7 @@ def get_bars(symbol, timeframe, start_time, end_time):
     time = np.float64(df['Time'].iloc[0].timestamp())
     end_time = df['Time'].iloc[-1]
     for i, row in df.iterrows():
+      print(i)
       if row['Time'] == pd.to_datetime(time, unit='s'):
         newdata.append(row)
       elif row['Time'] != pd.to_datetime(time, unit='s'):
@@ -57,6 +58,7 @@ def get_bars(symbol, timeframe, start_time, end_time):
       time = time + delta_seconds
     newdata = pd.DataFrame(newdata)
     return newdata
+ 
  
  
 class database():
