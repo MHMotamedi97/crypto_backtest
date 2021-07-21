@@ -1,3 +1,4 @@
+# !pip install python-binance
 from binance.client import Client
 import talib
 import numpy as np
@@ -45,14 +46,12 @@ def get_bars(symbol, timeframe, start_time, end_time):
     time = np.float64(df['Time'].iloc[0].timestamp())
     end_time = df['Time'].iloc[-1]
     for i, row in df.iterrows():
-	  print(i)
       if row['Time'] == pd.to_datetime(time, unit='s'):
         newdata.append(row)
       elif row['Time'] != pd.to_datetime(time, unit='s'):
         while(row['Time'] != pd.to_datetime(time, unit='s') and pd.to_datetime(time, unit='s') != end_time):
           r = df.iloc[i-1].values
           r[0] = pd.to_datetime(time, unit='s')
-          #r = pd.DataFrame(r)
           newdata.append(r)
           time = time + delta_seconds
         newdata.append(row)
