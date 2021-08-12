@@ -21,11 +21,11 @@ class buy:
         self.sl = sl
  
 def get_bars(symbol, timeframe, start_time, end_time):
-    # api_key = 'XkA9wEWiO3HEuy8iSXg74S9dR9gBUtqsaa7QiZc5qire8iod1N8YKxTN2jGlzI2s'
-    # api_secret = 'H0JWKsG9DM1k8kitOkAqajvmg9k8e073zy0dQ7HABIVrkdPj9YcbAwuqxYTOLJQP'
+    # api_key = ''
+    # api_secret = ''
 
-    api_key = 'mKudn88izK1eyiUHMena8sJ9dn2kpcwLgHG2KmVgGDIHsBiaOMyTTkcTRwLWvs0g'
-    api_secret = 'SyAMegwr1J7UhTlIKBV6dMov4gk2xyUgvop9jLB7dvx0YZQgXUzCooLcnef2QOlD'
+    api_key = ''
+    api_secret = ''
 
     client = Client(api_key, api_secret)
     candlesticks = client.get_historical_klines(symbol, timeframe.value, start_time, end_time)
